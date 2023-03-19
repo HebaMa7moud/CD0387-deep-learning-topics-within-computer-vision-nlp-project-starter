@@ -17,11 +17,22 @@ Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has ac
 ## Hyperparameter Tuning
 What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
+Apretrained model (Resnet50 Model) is used for image classification and this network is trained for classifying images into one of the 1000 categories or classes. 
+The parameters that used to tune the model are: learning rate, epochs and batch-size. 
+hyperparameter_ranges= {"lr": ContinuousParameter(0.001, 0.1),
+                        "epochs":IntegerParameter(1,4),
+                        "batch-size":CategoricalParameter([32, 64, 128, 256, 512])}
+                        
+
 Remember that your README should:
 - Include a screenshot of completed training jobs
+![training_jobs](https://user-images.githubusercontent.com/81697137/226155910-e816f388-725f-40fe-9ac6-bbc28c7fbf85.png)
+
 - Logs metrics during the training process
 - Tune at least two hyperparameters
 - Retrieve the best best hyperparameters from all your training jobs
+- ![HP_tunning_job](https://user-images.githubusercontent.com/81697137/226155945-86d2d02b-1fbb-4c69-af91-d00ecdd00271.png)
+
 
 ## Debugging and Profiling
 **TODO**: Give an overview of how you performed model debugging and profiling in Sagemaker
