@@ -36,9 +36,18 @@ Remember that your README should:
 
 ## Debugging and Profiling
 **TODO**: Give an overview of how you performed model debugging and profiling in Sagemaker
+Model debugging and profiling are performed using 6 steps:
+ 1. Import SMDebug framework class.
+ 2. Set the SMDebug hook for the test phase.
+ 3. Set the SMDebug hook for the training phase.
+ 4. Set the SMDebug hook for the validation phase.
+ 5. Register the SMDebug hook to save output tensors.
+ 6. Pass the SMDebug hook to the train and test functions.
 
 ### Results
 **TODO**: What are the results/insights did you get by profiling/debugging your model?
+![debug_profileresults](https://user-images.githubusercontent.com/81697137/226156234-249ccf25-8e8d-43b4-a3ee-51282dd5a75c.png)
+
 
 **TODO** Remember to provide the profiler html/pdf file in your submission.
 
@@ -46,7 +55,18 @@ Remember that your README should:
 ## Model Deployment
 **TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
+An inference script is created to implements the following functions to get a prediction; Net function, the model_fn function(calls the loaded model saved after retraining hpo.py script using finetuned parameters), input_fn function (process the image/url uploaded to the endpoint) and predict_fn function.
+
+An image URL is loaded and processed to query the the end point which is:
+request_dict={ "url": "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/20113314/Carolina-Dog-standing-outdoors.jpg" }
+![image](https://user-images.githubusercontent.com/81697137/226156803-38a11f61-1f99-4c11-b043-a3bc168a4bae.png)
+and the prediction is: array([19])
+ 
+ 
+
 **TODO** Remember to provide a screenshot of the deployed active endpoint in Sagemaker.
+![active_endpoint](https://user-images.githubusercontent.com/81697137/226156285-75901835-f9b7-4d99-bf95-43781c15db6a.png)
+
 
 ## Standout Suggestions
 **TODO (Optional):** This is where you can provide information about any standout suggestions that you have attempted.
