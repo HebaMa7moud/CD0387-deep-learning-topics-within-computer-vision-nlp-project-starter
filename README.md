@@ -32,6 +32,9 @@ Remember that your README should:
 - Tune at least two hyperparameters
 - Retrieve the best best hyperparameters from all your training jobs
 - ![HP_tunning_job](https://user-images.githubusercontent.com/81697137/226155945-86d2d02b-1fbb-4c69-af91-d00ecdd00271.png)
+- ![HP_tunning_job1](https://user-images.githubusercontent.com/81697137/226157196-c43b5703-7294-4afe-8612-906d3e2d7837.png)
+
+
 
 
 ## Debugging and Profiling
